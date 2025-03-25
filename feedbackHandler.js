@@ -1,8 +1,8 @@
-const { Client } = require('@notionhq/client');
-const config = require('./config.json');
 
-const notion = new Client({ auth: config.notionToken });
-const feedbackDbId = config.feedbackDatabaseId;
+const { Client } = require('@notionhq/client');
+
+const notion = new Client({ auth: process.env.NOTION_TOKEN });
+const feedbackDbId = process.env.FEEDBACK_DB_ID;
 
 async function saveFeedback({ category, content, date }) {
   const page = {
